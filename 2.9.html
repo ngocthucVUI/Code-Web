@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiết kế trang web TIN TỨC 24H</title>
+    <style>
+        /* --- 1. THIẾT LẬP CHUNG --- */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9e9e9;
+        }
+
+        /* Khung chứa toàn bộ trang web (rộng 900px như trong ảnh mẫu) */
+        .wrapper {
+            width: 950px;
+            margin: 10px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        /* --- 2. PHẦN ĐẦU TRANG (HEADER) --- */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background-color: #f1f1f1;
+        }
+        .logo-box {
+            width: 120px; /* Độ rộng dành cho logo */
+        }
+        .logo-box img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            color: #0000ff; /* Xanh dương */
+            font-size: 35px;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: "Comic Sans MS", cursive, sans-serif; /* Font hơi uốn lượn giống mẫu */
+        }
+
+        /* --- 3. MENU NGANG --- */
+        nav {
+            background-color: #336699; /* Xanh đậm */
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        nav ul li a:hover {
+            background-color: #264d73;
+        }
+
+        /* --- 4. BỐ CỤC CHÍNH (MAIN & SIDEBAR) --- */
+        .container {
+            display: flex;
+            padding: 30px;
+        }
+
+        /* Biểu mẫu liên hệ (Trái) */
+        .content-left {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        .form-row label {
+            width: 130px;
+            font-size: 14px;
+            padding-top: 5px;
+        }
+        .star {
+            color: red;
+        }
+        .input-field {
+            flex: 1;
+            max-width: 380px;
+            padding: 5px;
+            border: 1px solid #999;
+        }
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            padding-top: 5px;
+        }
+        select.input-field {
+            width: 80px;
+        }
+        textarea.input-field {
+            height: 120px;
+        }
+
+        /* Nút bấm */
+        .btn-group {
+            margin-left: 130px;
+            margin-top: 10px;
+        }
+        .btn {
+            border: none;
+            color: white;
+            padding: 7px 15px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 5px;
+        }
+        .btn-submit { background-color: #008000; } /* Xanh lá */
+        .btn-reset { background-color: #0000ff; }   /* Xanh dương */
+
+        /* Thanh bên phải (Sidebar) */
+        .sidebar-right {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .sidebar-right ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-right ul li {
+            margin-bottom: 15px;
+        }
+        .sidebar-right ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 15px;
+        }
+        .sidebar-right ul li a:hover {
+            color: #336699;
+        }
+
+        /* --- 5. CHÂN TRANG (FOOTER) --- */
+        footer {
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        footer p {
+            margin: 5px 0;
+            color: #0000ff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <div class="logo-box">
+            <img src="https://png.pngtree.com/png-vector/20190430/ourmid/pngtree-vector-creative-hot-news-tag-png-image_995500.jpg" alt="Logo 24H">
+        </div>
+        <h1>TIN TỨC 24H</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Chính trị</a></li>
+            <li><a href="#">Xã hội</a></li>
+            <li><a href="#">Sức khỏe</a></li>
+            <li><a href="#">Giáo dục</a></li>
+            <li><a href="#">Thể thao</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <main class="content-left">
+            <form>
+                <div class="form-row">
+                    <label>Họ tên: <span class="star">*</span></label>
+                    <input type="text" class="input-field" placeholder="Họ tên">
+                </div>
+                <div class="form-row">
+                    <label>Địa chỉ:</label>
+                    <input type="text" class="input-field" placeholder="Địa chỉ">
+                </div>
+                <div class="form-row">
+                    <label>Số điện thoại: <span class="star">*</span></label>
+                    <input type="text" class="input-field" placeholder="Số điện thoại">
+                </div>
+                <div class="form-row">
+                    <label>Giới tính:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" checked> Nam</label>
+                        <label><input type="radio" name="gender"> Nữ</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>Năm sinh:</label>
+                    <select class="input-field">
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Nội dung liên hệ: <span class="star">*</span></label>
+                    <textarea class="input-field"></textarea>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-submit">Gửi thông tin góp ý</button>
+                    <button type="reset" class="btn btn-reset">Nhập lại</button>
+                </div>
+            </form>
+        </main>
+
+        <aside class="sidebar-right">
+            <ul>
+                <li><a href="#">Tin tức thị trường</a></li>
+                <li><a href="#">Tin tức trong ngày</a></li>
+                <li><a href="#">Thông tin chứng khoán</a></li>
+                <li><a href="#">Sức khỏe đời sống</a></li>
+                <li><a href="#">Công nghệ thông tin</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <p>Cơ quan chủ quản: Công ty Cổ phần Quảng cáo Trực tuyến 24H</p>
+        <p>© 24h.com</p>
+    </footer>
+</div>
+
+</body>
+</html>
