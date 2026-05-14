@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			width: 50%;
+			margin: 0 auto;
+			line-height: 2.0;
+		}
+		.left{
+			width: 20%;
+			float: left;
+		}
+		.right{ 
+			width: 80%;
+			float: left;
+			 }
+		h3{
+			text-align: center;
+		}
+		.thongbao{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		function load()
+		{
+			document.getElementById("hoten").focus();
+			document.getElementById("dangnhap").disabled="true;"
+		}
+		function kiemtra()
+		{
+			let hoten=document.getElementById('hoten').value; //Lấy giá trị của id hoten thông qua phương thức getElementById gán cho biến hoten
+			let matkhau=document.getElementById('matkhau').value;
+			if(hoten=="")
+			{
+				document.getElementById("username").innerHTML="Tên đăng nhập không được để trống";
+				
+			}
+			else
+				document.getElementById("username").innerHTML="";
+			if(matkhau=="")
+			{
+				document.getElementById('password').innerHTML="Vui lòng nhập mật khẩu";
+
+			}
+			else if(matkhau.length<8)
+				document.getElementById("password").innerHTML="Mật khẩu ít nhất 8 ký tự";
+			else
+				document.getElementById("password").innerHTML="";
+			if(hoten!="" &&matkhau!="" & matkhau.length>=8)
+				alert("Đăng nhập thành công!!!");
+		}
+	</script>
+
+</head>
+<body onload="load();">
+<h3> ĐĂNG NHẬP</h3>
+<form name="f1">
+	<div class="left">
+		<label>Tên đăng nhập:</label><br>
+		<label>Mật khẩu:</label>
+	</div>
+	<div class="right">
+		<input type="text" name="hoten" id="hoten" size="30"><span class="thongbao" id="username"></span><br>
+		<input type="password" name="matkhau" id="matkhau" size="30"><span class="thongbao" id="password"></span><br>
+		<input type="button" onclick="kiemtra()" name="dangnhap" id="dangnhap" value="Đăng nhập">
+	</div>
+</form>
+</body>
+</html>
